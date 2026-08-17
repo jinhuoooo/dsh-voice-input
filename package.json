@@ -1,0 +1,29 @@
+{
+  "name": "dsh-voice-input",
+  "version": "2.3.0",
+  "description": "Voice-to-text for DSH, powered by Whisper. One click to record, speak, and text appears in the input box. Local-first (privacy), Simplified-Chinese output, anti-hallucination, works in China without a VPN. · DSH 语音输入插件：点一下麦克风说话，文字自动进输入框。本地优先、强制简体、防幻觉、国内网络直连可用。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": { "default": "./lib/index.js" },
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  }
+}
