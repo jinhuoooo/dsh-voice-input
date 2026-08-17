@@ -1,0 +1,4 @@
+# dsh bundle patch: inserts this plugin into the web profile layer stack.
+- insert:
+    - id: dsh-voice-input
+      name: 'dsh-voice-input'
